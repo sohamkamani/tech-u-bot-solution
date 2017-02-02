@@ -24,15 +24,15 @@ const addVelocity = (position, velocity) => ({
   y : position.y + velocity.y
 })
 
-const moveLeft = rover => Object.assign({}, rover, {
+const moveLeft = (rover) => Object.assign({}, rover, {
   direction : nextLeftDirection[rover.direction]
 })
 
-const moveRight = rover => Object.assign({}, rover, {
+const moveRight = (rover) => Object.assign({}, rover, {
   direction : nextRightDirection[rover.direction]
 })
 
-const moveGenerator = gridSize => rover => {
+const moveGenerator = (gridSize) => (rover) => {
   const currentVelocity = velocity[rover.direction]
   const newPosition = addVelocity(rover, currentVelocity)
   if(newPosition.x <= 0 || newPosition.x > gridSize.x || newPosition.y <= 0 || newPosition.y > gridSize.y){
